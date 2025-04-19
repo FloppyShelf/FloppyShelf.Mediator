@@ -6,7 +6,7 @@ A **lightweight**, **dependency-free** mediator implementation designed for .NET
 ## Features
 
 - Fully compatible with **.NET Standard 2.0** and higher.
-- **No external dependencies** - pure .NET.
+- **No external dependencies** (except `Microsoft.Extensions.DependencyInjection.Abstractions` for DI).
 - Simple setup and configuration.
 - Supports **multiple assemblies** and **namespace filtering**.
 - Extensible design.
@@ -26,6 +26,8 @@ Or via .NET CLI:
 ```bash
 dotnet add package FloppyShelf.Mediator
 ```
+
+> **Note**: This package depends on `Microsoft.Extensions.DependencyInjection.Abstractions` for dependency injection. It will be automatically installed when you add this package.
 
 ---
 
