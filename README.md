@@ -1,5 +1,5 @@
 # FloppyShelf.Mediator
-A **lightweight**, **dependency-free** mediator implementation designed for .NET Standard 2.0. It enables **CQRS (Command Query Responsibility Segregation)** patterns by decoupling request handling from business logic with minimal overhead.
+A **lightweight** mediator implementation designed for .NET Standard 2.0. It simplifies request handling by decoupling it from the rest of the application logic, enabling easier maintenance, better testability, and improved separation of concerns, while utilizing dependency injection through `Microsoft.Extensions.DependencyInjection.Abstractions`.
 
 ---
 
