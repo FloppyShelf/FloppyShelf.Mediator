@@ -1,15 +1,14 @@
 # FloppyShelf.Mediator
-A **lightweight** mediator implementation designed for .NET Standard 2.0. It simplifies request handling by decoupling it from the rest of the application logic, enabling easier maintenance, better testability, and improved separation of concerns, while utilizing dependency injection through `Microsoft.Extensions.DependencyInjection.Abstractions`.
+A **lightweight** mediator implementation designed for .NET Standard 2.0 and higher. It simplifies request handling by decoupling it from application logic, enabling easier maintenance, better testability, and clean separation of concerns � while leveraging dependency injection through `Microsoft.Extensions.DependencyInjection.Abstractions`.
 
 ---
 
 ## Features
-
-- Fully compatible with **.NET Standard 2.0** and higher.
+- Fully compatible with **.NET Standard 2.0** and above.
 - **No external dependencies** (except `Microsoft.Extensions.DependencyInjection.Abstractions` for DI).
 - Simple setup and configuration.
 - Supports **multiple assemblies** and **namespace filtering**.
-- Extensible design.
+- Clean, extensible, and minimalistic design.
 
 ---
 
@@ -63,18 +62,25 @@ public class GetProductQueryHandler : IRequestHandler<GetProductQuery, Product>
 
 ```csharp
 using FloppyShelf.Mediator.Extensions;
+using Microsoft.Extensions.DependencyInjection;
 
 var services = new ServiceCollection();
-services.AddMediator(new[] { typeof(Program).Assembly }, null);
+
+// Register handlers from the specified assemblies
+services.AddMediator(new[] { typeof(Program).Assembly });
+
+// Optional: Pass a string[] to filter specific namespaces
 ```
 
 ### 4. Send a Request
 
 ```csharp
-var provider = services.BuildServiceProvider();
-var sender = provider.GetRequiredService<ISender>();
+using Microsoft.Extensions.DependencyInjection;
 
-var result = await sender.SendAsync(new GetProductQuery { Id = 1 });
+var provider = services.BuildServiceProvider();
+var mediator = provider.GetRequiredService<IMediator>();
+
+var result = await mediator.SendAsync(new GetProductQuery { Id = 1 });
 Console.WriteLine(result.Name);
 ```
 
@@ -84,35 +90,20 @@ Console.WriteLine(result.Name);
 
 ### Interfaces
 
-- `IRequest<TResponse>`
-- `IRequestHandler<TRequest, TResponse>`
-- `ISender`
+- `IRequest<TResponse>` � Represents a request expecting a response.
+- `IRequestHandler<TRequest, TResponse>` � Handles a specific request.
+- `IMediator` � Sends requests to handlers.
 
 ### Key Classes
 
-- `Sender` - Central implementation of `ISender`.
-- `ServiceCollectionExtensions` - Extension method `AddMediator()` for DI setup.
-
----
-
-## Project Structure
-
-```
-FloppyShelf.Mediator/
-├── Extensions/
-│   └── ServiceCollectionExtensions.cs
-├── Interfaces/
-│   ├── IRequest.cs
-│   ├── IRequestHandler.cs
-│   └── ISender.cs
-└── Sender.cs
-```
+- `Mediator` � Core implementation of the mediator pattern.
+- `ServiceCollectionExtensions` - Provides the `AddMediator()` extension method for easy DI setup.
 
 ---
 
 ## Why FloppyShelf.Mediator?
 
-- **Clean and Minimal:** Only the essentials, no magic.
-- **Fully Open Source:** MIT licensed.
-- **Great for Learning:** Understand how mediators work internally.
-- **Perfect for Microservices and Clean Architectures.**
+- **Clean and Minimal** � Only the essentials, no magic.
+- **Fully Open Source** � MIT licensed.
+- **Great for Learning** � Understand how mediators work internally.
+- **Extremely Lightweight** � No unnecessary complexity.

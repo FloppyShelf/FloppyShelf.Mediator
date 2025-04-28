@@ -6,33 +6,42 @@ using System.Reflection;
 namespace FloppyShelf.Mediator.Extensions
 {
     /// <summary>
-    /// Provides extension methods for <see cref="IServiceCollection"/> to register mediator services.
+    /// Extension methods for <see cref="IServiceCollection"/> to register mediator services and their handlers.
     /// </summary>
     public static class ServiceCollectionExtensions
     {
         /// <summary>
-        /// Registers the mediator services and automatically discovers request handlers in the specified assemblies and namespaces.
+        /// Registers mediator services and automatically discovers and registers request handlers
+        /// from the specified assemblies and optional namespaces.
         /// </summary>
-        /// <param name="services">The service collection to which mediator services will be added.</param>
-        /// <param name="assemblies">The assemblies to scan for handler implementations. If null or empty, the calling assembly will be used.</param>
-        /// <param name="namespaces">Optional namespaces to filter handlers. If null or empty, all handlers will be registered.</param>
-        /// <returns>The updated <see cref="IServiceCollection"/>.</returns>
-        public static IServiceCollection AddMediator(this IServiceCollection services, Assembly[] assemblies, string[] namespaces)
+        /// <param name="services">The <see cref="IServiceCollection"/> to add mediator services to.</param>
+        /// <param name="assemblies">
+        /// The assemblies to scan for handler implementations. 
+        /// If <c>null</c> or empty, the calling assembly will be used.
+        /// </param>
+        /// <param name="namespaces">
+        /// Optional namespaces to filter the discovered handlers. 
+        /// If <c>null</c> or empty, all discovered handlers will be registered.
+        /// </param>
+        /// <returns>The updated <see cref="IServiceCollection"/> instance.</returns>
+        /// <remarks>
+        /// Each <see cref="IRequestHandler{TRequest,TResponse}"/> implementation will be registered 
+        /// as a scoped service against its corresponding interface.
+        /// </remarks>
+
+        public static IServiceCollection AddMediator(this IServiceCollection services, Assembly[] assemblies = null, string[] namespaces = null)
         {
             // Fallback to the calling assembly if no assemblies are specified
             if (assemblies is null || assemblies.Length == 0)
             {
-                assemblies = new[] { Assembly.GetCallingAssembly() };
+                assemblies = [Assembly.GetCallingAssembly()];
             }
 
             // Fallback to an empty array if no namespaces are specified
-            if (namespaces is null)
-            {
-                namespaces = new string[0];
-            }
+            namespaces ??= [];
 
             // Register the Sender service
-            services.AddScoped<ISender, Sender>();
+            services.AddScoped<IMediator, Mediator>();
 
             var handlerInterfaceType = typeof(IRequestHandler<,>);
 

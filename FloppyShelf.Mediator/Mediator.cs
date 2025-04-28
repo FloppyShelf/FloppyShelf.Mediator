@@ -9,15 +9,15 @@ namespace FloppyShelf.Mediator
     /// <summary>
     /// Default implementation of <see cref="ISender"/> that dispatches requests to their corresponding handlers.
     /// </summary>
-    public class Sender : ISender
+    public class Mediator : IMediator, ISender
     {
         private readonly IServiceProvider _serviceProvider;
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="Sender"/> class.
+        /// Initializes a new instance of the <see cref="Mediator"/> class.
         /// </summary>
         /// <param name="serviceProvider">The service provider used to resolve handlers.</param>
-        public Sender(IServiceProvider serviceProvider)
+        public Mediator(IServiceProvider serviceProvider)
         {
             _serviceProvider = serviceProvider;
         }

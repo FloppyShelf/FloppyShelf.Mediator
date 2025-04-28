@@ -1,15 +1,12 @@
-﻿using System;
-using System.Threading;
+﻿using System.Threading;
 using System.Threading.Tasks;
 
 namespace FloppyShelf.Mediator.Interfaces
 {
     /// <summary>
-    /// <b>Deprecated.</b> Defines a mediator responsible for sending requests to their corresponding handlers and returning responses.
-    /// Use <see cref="IMediator"/> instead.
+    /// Defines a mediator responsible for sending requests to their corresponding handlers and returning responses.
     /// </summary>
-    [Obsolete("Use IMediator instead.", false)]
-    public interface ISender
+    public interface IMediator
     {
         /// <summary>
         /// Sends a request to the appropriate handler and asynchronously retrieves the response.
