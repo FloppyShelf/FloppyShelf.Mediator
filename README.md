@@ -1,4 +1,8 @@
-﻿# FloppyShelf.Mediator
+﻿# ![FloppyShelf.Mediator](./logos/logo.png)
+
+[![NuGet](https://img.shields.io/nuget/v/FloppyShelf.Mediator.svg?style=flat-square)](https://www.nuget.org/packages/FloppyShelf.Mediator/)
+[![License](https://img.shields.io/github/license/FloppyShelf/FloppyShelf.Mediator.svg?style=flat-square)](https://github.com/FloppyShelf/FloppyShelf.Mediator/blob/main/LICENSE)
+
 A **lightweight** mediator implementation designed for .NET Standard 2.0 and higher. It simplifies request handling by decoupling it from application logic, enabling easier maintenance, better testability, and clean separation of concerns — while leveraging dependency injection through `Microsoft.Extensions.DependencyInjection.Abstractions`.
 
 ---

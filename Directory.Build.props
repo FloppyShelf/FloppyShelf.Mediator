@@ -12,7 +12,7 @@
 		<Description>A lightweight mediator implementation designed for .NET Standard 2.0. It simplifies request handling by decoupling it from the rest of the application logic, enabling easier maintenance, better testability, and improved separation of concerns, while utilizing dependency injection through Microsoft.Extensions.DependencyInjection.Abstractions.</Description>
 		<PackageTags>Mediator;CQRS;Request-Response;Request Handling;Clean Architecture;Lightweight;Dependency-Injection</PackageTags>
 		<RepositoryUrl>https://github.com/FloppyShelf/FloppyShelf.Mediator</RepositoryUrl>
-		<Icon>https://avatars.githubusercontent.com/u/202409566?v=4</Icon>
+		<PackageIcon>logos/logo.png</PackageIcon>
 		<PackageReadmeFile>README.md</PackageReadmeFile>
 		<PackageLicenseExpression>MIT</PackageLicenseExpression>
 	</PropertyGroup>
