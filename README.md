@@ -14,7 +14,7 @@ A **lightweight** mediator implementation designed for .NET Standard 2.0 and hig
 > - Microsoft.Bcl.AsyncInterfaces
 > - System.Runtime.CompilerServices.Unsafe
 > - System.Threading.Tasks.Extensions
-These packages are required to support modern `async/await` features on older .NET Framework versions.
+> These packages are required to support modern `async/await` features on older .NET Framework versions.
 
 ---
 
