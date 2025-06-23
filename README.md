@@ -11,9 +11,9 @@ A **lightweight** mediator implementation designed for .NET Standard 2.0 and hig
 - Clean, extensible, and minimalistic design.
 
 > **Note**: When targeting .NET Framework 4.7.2, 4.8, or 4.8.1 (net472, net48, net481), the following additional dependencies will be automatically included:
-> - Microsoft.Bcl.AsyncInterfaces
-> - System.Runtime.CompilerServices.Unsafe
-> - System.Threading.Tasks.Extensions
+> - `Microsoft.Bcl.AsyncInterfaces`
+> - `System.Runtime.CompilerServices.Unsafe`
+> - `System.Threading.Tasks.Extensions`
 > These packages are required to support modern `async/await` features on older .NET Framework versions.
 
 ---
