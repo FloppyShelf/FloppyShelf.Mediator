@@ -29,7 +29,7 @@ namespace FloppyShelf.Mediator.Extensions
         /// as a scoped service against its corresponding interface.
         /// </remarks>
 
-        public static IServiceCollection AddMediator(this IServiceCollection services, Assembly[] assemblies = null, string[] namespaces = null)
+        public static IServiceCollection AddMediator(this IServiceCollection services, Assembly[]? assemblies = null, string[]? namespaces = null)
         {
             // Fallback to the calling assembly if no assemblies are specified
             if (assemblies is null || assemblies.Length == 0)

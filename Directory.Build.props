@@ -1,11 +1,11 @@
 ﻿<Project>
 	<PropertyGroup>
-		<TargetFramework>netstandard2.0</TargetFramework>
-		<Nullable>disable</Nullable>
-		<ImplicitUsings>disable</ImplicitUsings>
+		<TargetFrameworks>netstandard2.0;netstandard2.1;net8.0;net9.0;net472;net48;net481</TargetFrameworks>
+		<Nullable>enable</Nullable>
+		<ImplicitUsings>enable</ImplicitUsings>
 		<RootNamespace>FloppyShelf.Mediator</RootNamespace>
 		<EnablePackageValidation>true</EnablePackageValidation>
-		<LangVersion>12.0</LangVersion>
+		<LangVersion>13.0</LangVersion>
 	</PropertyGroup>
 	<PropertyGroup>
 		<Authors>Johannes Musbach</Authors>

@@ -1,14 +1,20 @@
-# FloppyShelf.Mediator
-A **lightweight** mediator implementation designed for .NET Standard 2.0 and higher. It simplifies request handling by decoupling it from application logic, enabling easier maintenance, better testability, and clean separation of concerns — while leveraging dependency injection through `Microsoft.Extensions.DependencyInjection.Abstractions`.
+ï»¿# FloppyShelf.Mediator
+A **lightweight** mediator implementation designed for .NET Standard 2.0 and higher. It simplifies request handling by decoupling it from application logic, enabling easier maintenance, better testability, and clean separation of concerns â€” while leveraging dependency injection through `Microsoft.Extensions.DependencyInjection.Abstractions`.
 
 ---
 
 ## Features
-- Fully compatible with **.NET Standard 2.0** and above.
+- Target frameworks: `netstandard2.0`, `netstandard2.1`, `net8.0`, `net9.0`, `net472`, `net48`, and `net481`.
 - **No external dependencies** (except `Microsoft.Extensions.DependencyInjection.Abstractions` for DI).
 - Simple setup and configuration.
 - Supports **multiple assemblies** and **namespace filtering**.
 - Clean, extensible, and minimalistic design.
+
+> **Note**: When targeting .NET Framework 4.7.2, 4.8, or 4.8.1 (net472, net48, net481), the following additional dependencies will be automatically included:
+> - Microsoft.Bcl.AsyncInterfaces
+> - System.Runtime.CompilerServices.Unsafe
+> - System.Threading.Tasks.Extensions
+These packages are required to support modern `async/await` features on older .NET Framework versions.
 
 ---
 
@@ -25,8 +31,6 @@ Or via .NET CLI:
 ```bash
 dotnet add package FloppyShelf.Mediator
 ```
-
-> **Note**: This package depends on `Microsoft.Extensions.DependencyInjection.Abstractions` for dependency injection. It will be automatically installed when you add this package.
 
 ---
 
@@ -90,20 +94,20 @@ Console.WriteLine(result.Name);
 
 ### Interfaces
 
-- `IRequest<TResponse>` – Represents a request expecting a response.
-- `IRequestHandler<TRequest, TResponse>` – Handles a specific request.
-- `IMediator` – Sends requests to handlers.
+- `IRequest<TResponse>` - Represents a request expecting a response.
+- `IRequestHandler<TRequest, TResponse>` - Handles a specific request.
+- `IMediator` - Sends requests to handlers.
 
 ### Key Classes
 
-- `Mediator` – Core implementation of the mediator pattern.
+- `Mediator` -  Core implementation of the mediator pattern.
 - `ServiceCollectionExtensions` - Provides the `AddMediator()` extension method for easy DI setup.
 
 ---
 
 ## Why FloppyShelf.Mediator?
 
-- **Clean and Minimal** – Only the essentials, no magic.
-- **Fully Open Source** – MIT licensed.
-- **Great for Learning** – Understand how mediators work internally.
-- **Extremely Lightweight** – No unnecessary complexity.
+- **Clean and Minimal** - Only the essentials, no magic.
+- **Fully Open Source** - MIT licensed.
+- **Great for Learning** - Understand how mediators work internally.
+- **Extremely Lightweight** - No unnecessary complexity.

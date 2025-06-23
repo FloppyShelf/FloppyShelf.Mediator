@@ -4,14 +4,20 @@
 		<PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" />
 	</ItemGroup>
 
+	<ItemGroup Condition="'$(TargetFramework)' == 'net472' Or '$(TargetFramework)' == 'net48' Or '$(TargetFramework)' == 'net481'">
+		<PackageReference Include="Microsoft.Bcl.AsyncInterfaces" />
+		<PackageReference Include="System.Runtime.CompilerServices.Unsafe" />
+		<PackageReference Include="System.Threading.Tasks.Extensions" />
+	</ItemGroup>
+
 	<PropertyGroup>
 		<PackageId>FloppyShelf.Mediator</PackageId>
-		<Version>1.0.1</Version>
+		<Version>1.0.2</Version>
 	</PropertyGroup>
 
 	<ItemGroup>
 		<None Include="..\LICENSE" Pack="true" PackagePath="\" />
 		<None Include="..\README.md" Pack="true" PackagePath="\" />
 	</ItemGroup>
-
+	
 </Project>

@@ -7,9 +7,9 @@ using System.Threading.Tasks;
 namespace FloppyShelf.Mediator
 {
     /// <summary>
-    /// Default implementation of <see cref="ISender"/> that dispatches requests to their corresponding handlers.
+    /// Default implementation of <see cref="IMediator"/> that dispatches requests to their corresponding handlers.
     /// </summary>
-    public class Mediator : IMediator, ISender
+    public class Mediator : IMediator
     {
         private readonly IServiceProvider _serviceProvider;
 
