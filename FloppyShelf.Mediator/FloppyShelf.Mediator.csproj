@@ -12,7 +12,7 @@
 
 	<PropertyGroup>
 		<PackageId>FloppyShelf.Mediator</PackageId>
-		<Version>1.0.2</Version>
+		<Version>1.0.3.0</Version>
 	</PropertyGroup>
 
 	<ItemGroup>
